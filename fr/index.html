@@ -310,6 +310,10 @@
       <a href="#" class="brand-logo-wrap" aria-label="Holy, accueil">
         <img src="../img/LOGO.jpg" alt="Holy" class="brand-logo-img" width="230" height="100">
       </a>
+      <div class="live-badge" id="liveBadge" aria-live="polite">
+        <span class="live-dot" id="liveDot" aria-hidden="true"></span>
+        <span id="liveBadgeText">Vérification des horaires…</span>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">☰</button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#menu">La Carte</a></li>
@@ -434,10 +438,18 @@
         <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem;">Burgers d'auteur, entrées artisanales et desserts maison.</p>
       </div>
 
-      <div class="menu-layout">
-        
+      <div class="menu-filter-tabs reveal" role="tablist" aria-label="Filtrer la carte">
+        <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+        <button type="button" class="filter-tab" data-filter="burgers" role="tab" aria-selected="false">Burgers</button>
+        <button type="button" class="filter-tab" data-filter="entrantes" role="tab" aria-selected="false">Entrées</button>
+        <button type="button" class="filter-tab" data-filter="complementos" role="tab" aria-selected="false">Suppléments &amp; Sauces</button>
+        <button type="button" class="filter-tab" data-filter="postres" role="tab" aria-selected="false">Desserts</button>
+      </div>
+
+      <div class="menu-layout" id="menuLayout">
+
         <!-- BURGERS -->
-        <div>
+        <div class="menu-group" data-menu-group="burgers">
           <div class="category-title-row">
             <h3>Burgers</h3>
             <span>Classics</span>
@@ -565,7 +577,7 @@
         <!-- ENTRANTES, COMPLEMENTOS, SALSAS Y POSTRES -->
         <div class="sidebar-menu-wrap">
           
-          <div class="retro-yellow-box">
+          <div class="retro-yellow-box menu-group" data-menu-group="entrantes">
             <h3 class="retro-box-title">Entrées</h3>
             <div class="damero-inner"></div>
 
@@ -594,7 +606,7 @@
             </ul>
           </div>
 
-          <div class="retro-yellow-box">
+          <div class="retro-yellow-box menu-group" data-menu-group="complementos">
             <h3 class="retro-box-title">Suppléments</h3>
             <div class="damero-inner"></div>
 
@@ -619,7 +631,7 @@
           </div>
 
           <div class="extras-panel">
-            <div class="extras-grid">
+            <div class="extras-grid menu-group" data-menu-group="complementos">
               <div>
                 <div class="sun-badge-patatas">
                   <span>Frites</span>
@@ -640,7 +652,7 @@
               </div>
             </div>
 
-            <div class="dessert-box">
+            <div class="dessert-box menu-group" data-menu-group="postres">
               <h4 class="dessert-title">Desserts</h4>
               
               <div class="dessert-item">
@@ -979,6 +991,11 @@
         <p style="color: var(--text-muted); margin-top: 0.5rem;">Service en salle, en terrasse et à emporter.</p>
       </div>
 
+      <div class="live-status-banner reveal" id="liveStatusBanner" aria-live="polite">
+        <span class="live-dot" id="liveDotBanner" aria-hidden="true"></span>
+        <span id="liveBannerText">Vérification des horaires…</span>
+      </div>
+
       <div class="table-container reveal">
         <table class="schedule-table">
           <thead>
@@ -1115,6 +1132,15 @@
             <a href="https://maps.google.com/?q=43.3412759,-1.7868546" target="_blank" rel="noopener" class="btn btn-primary" data-track="click_como_llegar_ubicacion">
               COMMENT VENIR
             </a>
+
+            <div class="nav-app-row">
+              <a href="https://maps.apple.com/?ll=43.3412759,-1.7868546&q=Holy" target="_blank" rel="noopener" class="nav-app-btn" data-track="click_apple_maps" aria-label="Itinéraire avec Apple Plans">Apple Plans</a>
+              <a href="https://waze.com/ul?ll=43.3412759,-1.7868546&navigate=yes" target="_blank" rel="noopener" class="nav-app-btn" data-track="click_waze" aria-label="Itinéraire avec Waze">Waze</a>
+              <button type="button" class="nav-app-btn" id="copyAddressBtn" data-address="Santiago Kalea, 27, 20304 Irun" data-track="click_copiar_direccion" aria-label="Copier l'adresse">
+                <span id="copyAddressText">Copier l'adresse</span>
+              </button>
+            </div>
+
             <a href="https://search.google.com/local/writereview?placeid=ChIJ6xGPJQAJUQ0RCYyl2YRZp2U" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 1.05rem;" data-track="click_dejar_resena">
               LAISSER UN AVIS GOOGLE
             </a>
@@ -1217,7 +1243,17 @@
         closedToday: 'Fermé aujourd\'hui',
         openNow: 'Ouvert maintenant',
         closedNow: 'Fermé actuellement',
-        opensAt: (time) => `Ouvre à ${time}`
+        opensAt: (time) => `Ouvre à ${time}`,
+        dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+        dayPrefix: 'le',
+        todayWord: 'aujourd\'hui',
+        liveOpen: (close) => `Ouvert maintenant · Ferme à ${close}`,
+        liveClosed: (whenLabel, time) => `Fermé · Ouvre ${whenLabel} à ${time}`
+      },
+      copyAddress: {
+        idle: 'COPIER L\'ADRESSE',
+        copied: 'Copié dans le presse-papiers !',
+        error: 'Impossible de copier'
       },
       legal: {
         aviso: {

@@ -147,7 +147,7 @@
       sections.forEach((section) => io.observe(section));
     })();
 
-    // 0c. ESTADO DE HORARIO EN VIVO
+    // 0c. ESTADO DE HORARIO EN VIVO (tabla + badge navbar + banner destacado)
     (function () {
       const rows = document.querySelectorAll('.schedule-table tbody tr[data-days]');
       if (!rows.length) return;
@@ -156,6 +156,60 @@
         const [h, m] = hhmm.split(':').map(Number);
         return h * 60 + m;
       }
+      function toHHMM(mins) {
+        const h = String(Math.floor(mins / 60)).padStart(2, '0');
+        const m = String(mins % 60).padStart(2, '0');
+        return `${h}:${m}`;
+      }
+
+      // Construye el mapa semanal (0=domingo..6=sábado) a partir de las filas de la tabla,
+      // así la tabla sigue siendo la única fuente de verdad del horario.
+      const weekMap = {};
+      rows.forEach((row) => {
+        const days = row.dataset.days.split(',').map(Number);
+        days.forEach((d) => {
+          weekMap[d] = row.dataset.closed === 'true'
+            ? { closed: true }
+            : { open: row.dataset.open, close: row.dataset.close };
+        });
+      });
+
+      function dayLabel(i18n, day, isToday) {
+        return isToday ? i18n.todayWord : `${i18n.dayPrefix} ${i18n.dayNames[day]}`;
+      }
+
+      function computeLiveStatus(now) {
+        const i18n = window.HOLY_I18N.schedule;
+        const day = now.getDay();
+        const minutesNow = now.getHours() * 60 + now.getMinutes();
+        const today = weekMap[day];
+
+        if (today && !today.closed) {
+          const openMin = toMinutes(today.open);
+          const closeMin = toMinutes(today.close);
+          if (minutesNow >= openMin && minutesNow < closeMin) {
+            return { open: true, text: i18n.liveOpen(today.close) };
+          }
+          if (minutesNow < openMin) {
+            return { open: false, text: i18n.liveClosed(i18n.todayWord, today.open) };
+          }
+        }
+
+        // Cerrado ahora: busca la próxima apertura, día a día, hasta 7 días vista
+        for (let offset = 1; offset <= 7; offset++) {
+          const nextDay = (day + offset) % 7;
+          const info = weekMap[nextDay];
+          if (info && !info.closed) {
+            return { open: false, text: i18n.liveClosed(dayLabel(i18n, nextDay, false), info.open) };
+          }
+        }
+        return { open: false, text: i18n.closedNow };
+      }
+
+      const liveDot = document.getElementById('liveDot');
+      const liveBadgeText = document.getElementById('liveBadgeText');
+      const liveDotBanner = document.getElementById('liveDotBanner');
+      const liveBannerText = document.getElementById('liveBannerText');
 
       function refreshSchedule() {
         const now = new Date();
@@ -191,10 +245,102 @@
             badge.className = 'badge-closed schedule-status';
           }
         });
+
+        const status = computeLiveStatus(now);
+        [
+          [liveDot, liveBadgeText],
+          [liveDotBanner, liveBannerText]
+        ].forEach(([dot, textEl]) => {
+          if (!dot || !textEl) return;
+          dot.classList.toggle('is-closed', !status.open);
+          textEl.textContent = (status.open ? '🟢 ' : '🔴 ') + status.text;
+        });
       }
 
       refreshSchedule();
       setInterval(refreshSchedule, 60000);
+    })();
+
+    // 0e. FILTROS RÁPIDOS DE LA CARTA
+    (function () {
+      const tabs = document.querySelectorAll('.filter-tab');
+      const menuLayout = document.getElementById('menuLayout');
+      const burgersCol = document.querySelector('[data-menu-group="burgers"]');
+      const sidebarWrap = document.querySelector('.sidebar-menu-wrap');
+      if (!tabs.length || !menuLayout) return;
+
+      function setGroupVisible(el, visible) {
+        if (!el) return;
+        if (visible) {
+          el.classList.remove('menu-group-hidden');
+          requestAnimationFrame(() => el.classList.remove('menu-fade-out'));
+        } else {
+          el.classList.add('menu-fade-out');
+          window.setTimeout(() => el.classList.add('menu-group-hidden'), 220);
+        }
+      }
+
+      function applyFilter(filter) {
+        const showBurgers = filter === 'all' || filter === 'burgers';
+        const showSidebar = filter === 'all' || ['entrantes', 'complementos', 'postres'].includes(filter);
+
+        setGroupVisible(burgersCol, showBurgers);
+        setGroupVisible(sidebarWrap, showSidebar);
+
+        document.querySelectorAll('.sidebar-menu-wrap [data-menu-group]').forEach((el) => {
+          setGroupVisible(el, filter === 'all' || el.dataset.menuGroup === filter);
+        });
+
+        menuLayout.classList.toggle('menu-layout-single', filter !== 'all');
+
+        tabs.forEach((tab) => {
+          const isActive = tab.dataset.filter === filter;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', String(isActive));
+        });
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
+      });
+    })();
+
+    // 0f. COPIAR DIRECCIÓN AL PORTAPAPELES
+    (function () {
+      const btn = document.getElementById('copyAddressBtn');
+      const label = document.getElementById('copyAddressText');
+      if (!btn || !label) return;
+      const originalText = label.textContent;
+      let resetTimer = null;
+
+      async function copyAddress() {
+        const address = btn.dataset.address;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(address);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = address;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          label.textContent = window.HOLY_I18N.copyAddress.copied;
+          btn.classList.add('copied');
+        } catch (e) {
+          label.textContent = window.HOLY_I18N.copyAddress.error;
+        }
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+          label.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2200);
+      }
+
+      btn.addEventListener('click', copyAddress);
     })();
 
     // 1. MENU MOBILE

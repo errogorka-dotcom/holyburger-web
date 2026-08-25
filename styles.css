@@ -287,6 +287,122 @@
     section[id] {
       scroll-margin-top: 150px;
     }
+
+    /* BADGE DE HORARIO EN VIVO (navbar + destacado sobre tabla de horarios) */
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+      animation: live-pulse-green 1.8s ease-out infinite;
+    }
+    .live-dot.is-closed {
+      background: #f87171;
+      box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.55);
+      animation: live-pulse-red 2.2s ease-out infinite;
+    }
+    @keyframes live-pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+      70% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+    @keyframes live-pulse-red {
+      0% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.5); }
+      70% { box-shadow: 0 0 0 6px rgba(248, 113, 113, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live-dot { animation: none; }
+    }
+
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--text-main);
+      max-width: 220px;
+    }
+    .live-badge span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    @media (max-width: 950px) {
+      .live-badge {
+        max-width: 42vw;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.7rem;
+      }
+    }
+    @media (max-width: 420px) {
+      .live-badge span:last-child { display: none; }
+      .live-badge { max-width: none; padding: 0.5rem; }
+    }
+
+    /* BOTONES APPLE MAPS / WAZE / COPIAR DIRECCIÓN */
+    .nav-app-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .nav-app-btn {
+      flex: 1 1 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .nav-app-btn:hover {
+      border-color: var(--brand-yellow);
+      color: var(--brand-yellow);
+      background: rgba(255, 199, 0, 0.05);
+    }
+    .nav-app-btn.copied {
+      border-color: #4ade80;
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.08);
+    }
+
+    .live-status-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 12px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--brand-yellow);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .live-status-banner { font-size: 0.88rem; padding: 0.8rem 1rem; }
+    }
     .navbar-inner {
       display: flex;
       align-items: center;
@@ -569,6 +685,70 @@
       display: grid;
       grid-template-columns: 1.45fr 1fr;
       gap: 3.5rem;
+    }
+    .menu-layout.menu-layout-single {
+      grid-template-columns: 1fr;
+    }
+    .menu-layout.menu-layout-single .sidebar-menu-wrap {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* FILTROS RÁPIDOS DE LA CARTA */
+    .menu-filter-tabs {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: -1.5rem 0 3rem;
+    }
+    .filter-tab {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .filter-tab:hover {
+      border-color: var(--brand-yellow);
+      color: var(--text-main);
+    }
+    .filter-tab.active {
+      background: var(--brand-yellow);
+      border-color: var(--brand-yellow);
+      color: #09090b;
+    }
+    @media (max-width: 600px) {
+      .menu-filter-tabs {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: -1rem -1.5rem 2.5rem;
+        padding: 0 1.5rem 0.4rem;
+      }
+    }
+
+    .menu-group,
+    .sidebar-menu-wrap,
+    [data-menu-group="burgers"] {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .menu-fade-out {
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+    }
+    .menu-group-hidden {
+      display: none;
     }
 
     .category-title-row {
