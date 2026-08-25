@@ -282,6 +282,11 @@
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
     }
+
+    /* Compensa la altura del navbar sticky al saltar a una sección por enlace/ancla */
+    section[id] {
+      scroll-margin-top: 150px;
+    }
     .navbar-inner {
       display: flex;
       align-items: center;
@@ -1436,6 +1441,7 @@
     @media (max-width: 950px) {
       .navbar-inner { height: 95px; }
       .brand-logo-img { height: 80px; }
+      section[id] { scroll-margin-top: 118px; }
       .menu-layout, .hero-grid, .story-grid, .location-grid, .footer-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
