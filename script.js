@@ -422,9 +422,28 @@
       updateCarousel();
     }
 
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let carouselPaused = prefersReducedMotion;
+    const pauseBtn = document.getElementById('carouselPauseBtn');
+    const pauseIcon = document.getElementById('carouselPauseIcon');
+    const ICON_PAUSE = '<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>';
+    const ICON_PLAY = '<path d="M7 4.5v15l13-7.5-13-7.5Z"/>';
+
     function startCarousel() {
       if (carouselAutoplay) clearInterval(carouselAutoplay);
+      if (carouselPaused) return;
       carouselAutoplay = setInterval(nextTrackSlide, 4500);
+    }
+
+    function setCarouselPaused(paused) {
+      carouselPaused = paused;
+      if (paused) {
+        clearInterval(carouselAutoplay);
+      } else {
+        startCarousel();
+      }
+      if (pauseBtn) pauseBtn.setAttribute('aria-pressed', String(paused));
+      if (pauseIcon) pauseIcon.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
     }
 
     const nextBtn = document.getElementById('nextTrackBtn');
@@ -446,15 +465,22 @@
       });
     }
 
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setCarouselPaused(!carouselPaused);
+      });
+    }
+
     const viewport = document.getElementById('carouselViewport');
     if (viewport) {
       viewport.addEventListener('mouseenter', () => clearInterval(carouselAutoplay));
-      viewport.addEventListener('mouseleave', startCarousel);
+      viewport.addEventListener('mouseleave', () => { if (!carouselPaused) startCarousel(); });
     }
 
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
-    startCarousel();
+    setCarouselPaused(carouselPaused);
 
     // 4. COOKIES
     function acceptCookies(all) {

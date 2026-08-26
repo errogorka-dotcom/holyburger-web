@@ -388,8 +388,8 @@
         <div class="stat-label">Locales Participantes</div>
       </div>
       <div>
-        <div class="stat-number font-display">4.7 / 5</div>
-        <div class="stat-label">163+ Reseñas en Google</div>
+        <div class="stat-number font-display">4.7&nbsp;/&nbsp;5</div>
+        <div class="stat-label">163+&nbsp;Reseñas en Google</div>
       </div>
     </div>
   </section>
@@ -421,6 +421,7 @@
           <img src="img/holy-shit.JPG"
                onerror="this.onerror=null; this.src='img/foto-premio.JPG'"
                alt="Hamburguesa artesanal de Holy en Irún"
+               width="469" height="604"
                loading="lazy" decoding="async"
                style="cursor: zoom-in;" tabindex="0" role="button"
                aria-label="Ampliar foto de la hamburguesa artesanal de Holy"
@@ -861,6 +862,9 @@
 
       <div class="slider-nav-bar">
         <button class="slider-arrow-btn" id="prevTrackBtn" aria-label="Desplazar a la izquierda">←</button>
+        <button class="slider-arrow-btn slider-pause-btn" id="carouselPauseBtn" aria-label="Pausar el desplazamiento automático" aria-pressed="false">
+          <svg id="carouselPauseIcon" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        </button>
         <span class="slider-counter" id="trackCounterText">1 / 13</span>
         <button class="slider-arrow-btn" id="nextTrackBtn" aria-label="Desplazar a la derecha">→</button>
       </div>
@@ -996,7 +1000,7 @@
       <div class="premio-spotlight-media reveal">
         <picture>
           <source srcset="img/foto-premio.webp" type="image/webp">
-          <img src="img/foto-premio.JPG" alt="Premio Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+          <img src="img/foto-premio.JPG" alt="Premio Holy Sh*t Burger" class="premio-photo-framed" width="645" height="868" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
         </picture>
         <div>
           <blockquote class="premio-jury-quote">
@@ -1200,7 +1204,7 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <img src="img/LOGO.jpg" alt="Holy Burger" style="height: 85px; width: auto; margin-bottom: 1rem;">
+        <img src="img/LOGO.jpg" alt="Holy Burger" width="540" height="540" style="height: 85px; width: auto; margin-bottom: 1rem;">
         <p style="max-width: 320px; font-size: 0.95rem;">
           Hamburguesas de autor y producto de calidad en Santiago Kalea, 27 (Irún).
         </p>
