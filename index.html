@@ -34,9 +34,9 @@
   <meta property="og:url" content="https://holyburgerirun.com/">
   <meta property="og:title" content="Holy | Mejor Hamburguesa de Euskadi · Top 15 de España">
   <meta property="og:description" content="Hamburguesas de autor con ingredientes caseros y carne 100% vaca premium. Santiago Kalea, 27 · Irún (Gipuzkoa).">
-  <meta property="og:image" content="https://holyburgerirun.com/img/foto-premio.JPG">
-  <meta property="og:image:width" content="645">
-  <meta property="og:image:height" content="868">
+  <meta property="og:image" content="https://holyburgerirun.com/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -352,12 +352,15 @@
         </div>
       </div>
       <div class="hero-image-wrap">
-        <img class="hero-img"
-             src="img/foto-premio.JPG"
-             onerror="this.onerror=null; this.src='img/holy-shit.JPG'"
-             alt="Hamburguesa Holy Sh*t, premiada en Best Burger Spain 2026"
-             width="600" height="480"
-             loading="eager" decoding="async" fetchpriority="high">
+        <picture>
+          <source srcset="img/foto-premio.webp" type="image/webp">
+          <img class="hero-img"
+               src="img/foto-premio.JPG"
+               onerror="this.onerror=null; this.src='img/holy-shit.JPG'"
+               alt="Hamburguesa Holy Sh*t, premiada en Best Burger Spain 2026"
+               width="600" height="480"
+               loading="eager" decoding="async" fetchpriority="high">
+        </picture>
         <div class="award-seal" aria-hidden="true">
           <div class="award-seal-text">
             <span class="line-top">Best Burger</span>
@@ -413,16 +416,22 @@
       </div>
 
       <div class="story-img-wrap">
-        <img src="img/holy-shit.JPG"
-             onerror="this.onerror=null; this.src='img/foto-premio.JPG'"
-             alt="Hamburguesa artesanal de Holy en Irún"
-             loading="lazy" decoding="async"
-             style="cursor: zoom-in;" tabindex="0" role="button"
-             aria-label="Ampliar foto de la hamburguesa artesanal de Holy"
-             onclick="openPhotoLightbox(this.src, this.alt)"
-             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <picture>
+          <source srcset="img/holy-shit.webp" type="image/webp">
+          <img src="img/holy-shit.JPG"
+               onerror="this.onerror=null; this.src='img/foto-premio.JPG'"
+               alt="Hamburguesa artesanal de Holy en Irún"
+               loading="lazy" decoding="async"
+               style="cursor: zoom-in;" tabindex="0" role="button"
+               aria-label="Ampliar foto de la hamburguesa artesanal de Holy"
+               onclick="openPhotoLightbox(this.src, this.alt)"
+               onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        </picture>
         <figure class="founders-polaroid" tabindex="0" role="button" aria-label="Ampliar foto de los fundadores de Holy en la cocina" onclick="openPhotoLightbox('img/holy-primer-dia.JPG', 'Los dos fundadores de Holy en la cocina del local')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="cursor: zoom-in;">
-          <img src="img/holy-primer-dia.JPG" alt="Los dos fundadores de Holy en la cocina del local" loading="lazy" decoding="async" width="150" height="110">
+          <picture>
+            <source srcset="img/holy-primer-dia.webp" type="image/webp">
+            <img src="img/holy-primer-dia.JPG" alt="Los dos fundadores de Holy en la cocina del local" loading="lazy" decoding="async" width="150" height="110">
+          </picture>
           <figcaption>Los primeros días</figcaption>
         </figure>
       </div>
@@ -877,21 +886,30 @@
 
         <div class="ambiente-photos">
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: comiéndose una Holy sin dejar ni las migas" onclick="openPhotoLightbox('img/alvarito-comiendo.JPG', 'Cliente disfrutando de una hamburguesa Holy de cerca')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/alvarito-ambiente-wide.jpg" alt="Cliente disfrutando de una hamburguesa Holy de cerca" loading="lazy" decoding="async" width="900" height="460" style="object-position: center center;">
+            <picture>
+              <source srcset="img/alvarito-ambiente-wide.webp" type="image/webp">
+              <img src="img/alvarito-ambiente-wide.jpg" alt="Cliente disfrutando de una hamburguesa Holy de cerca" loading="lazy" decoding="async" width="900" height="460" style="object-position: center center;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
             <figcaption class="ambiente-photo-caption">Sin dejar ni las migas</figcaption>
           </figure>
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: directas a la boca, sin postureo" onclick="openPhotoLightbox('img/ambiente-1.JPG', 'Clienta disfrutando de una hamburguesa Holy en la calle')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/ambiente-1.JPG" alt="Clienta disfrutando de una hamburguesa Holy en la calle" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 25%;">
+            <picture>
+              <source srcset="img/ambiente-1.webp" type="image/webp">
+              <img src="img/ambiente-1.JPG" alt="Clienta disfrutando de una hamburguesa Holy en la calle" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 25%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
             <figcaption class="ambiente-photo-caption">Directas a la boca, sin postureo</figcaption>
           </figure>
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: así se vive Holy en Santiago Kalea" onclick="openPhotoLightbox('img/ambiente-2.JPG', 'Clientes comiendo hamburguesas Holy encima de un coche en Irún')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/ambiente-2.JPG" alt="Clientes comiendo hamburguesas Holy encima de un coche en Irún" loading="lazy" decoding="async" width="640" height="240" style="object-position: center top;">
+            <picture>
+              <source srcset="img/ambiente-2.webp" type="image/webp">
+              <img src="img/ambiente-2.JPG" alt="Clientes comiendo hamburguesas Holy encima de un coche en Irún" loading="lazy" decoding="async" width="640" height="240" style="object-position: center top;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -914,7 +932,10 @@
         <div class="process-step">
           <span class="process-step-num">01</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: carne jugosa, capa a capa" onclick="openPhotoLightbox('img/foto-hamburguesa-apiladas.jpg', 'Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/burgers-apiladas-wide.jpg" alt="Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne" loading="lazy" decoding="async" width="900" height="520" style="object-position: center center;">
+            <picture>
+              <source srcset="img/burgers-apiladas-wide.webp" type="image/webp">
+              <img src="img/burgers-apiladas-wide.jpg" alt="Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne" loading="lazy" decoding="async" width="900" height="520" style="object-position: center center;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -924,7 +945,10 @@
         <div class="process-step">
           <span class="process-step-num">02</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: Xabi poniéndole ganas en cocina" onclick="openPhotoLightbox('img/xabi-disfrutando.jpg', 'Xabi cocinando y disfrutando en la cocina de Holy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/xabi-disfrutando.jpg" alt="Xabi cocinando y disfrutando en la cocina de Holy" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 22%;">
+            <picture>
+              <source srcset="img/xabi-disfrutando.webp" type="image/webp">
+              <img src="img/xabi-disfrutando.jpg" alt="Xabi cocinando y disfrutando en la cocina de Holy" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 22%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -934,7 +958,10 @@
         <div class="process-step">
           <span class="process-step-num">03</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: nachos Holy recién montados" onclick="openPhotoLightbox('img/foto-nachos.JPG', 'Nachos Holy recién montados con queso fundido')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="img/foto-nachos.JPG" alt="Nachos Holy recién montados con queso fundido" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 65%;">
+            <picture>
+              <source srcset="img/foto-nachos.webp" type="image/webp">
+              <img src="img/foto-nachos.JPG" alt="Nachos Holy recién montados con queso fundido" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 65%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -967,7 +994,10 @@
       </div>
 
       <div class="premio-spotlight-media reveal">
-        <img src="img/foto-premio.JPG" alt="Premio Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <picture>
+          <source srcset="img/foto-premio.webp" type="image/webp">
+          <img src="img/foto-premio.JPG" alt="Premio Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        </picture>
         <div>
           <blockquote class="premio-jury-quote">
             "Catado a ciegas por un jurado gastronómico de élite presidido por José Carlos Capel (Madrid Fusión), junto a Javier Estévez, Ricardo Sanz y Mariana Sánchez."

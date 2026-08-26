@@ -34,9 +34,9 @@
   <meta property="og:url" content="https://holyburgerirun.com/fr/">
   <meta property="og:title" content="Holy | Meilleur Burger du Pays Basque · Top 15 d'Espagne">
   <meta property="og:description" content="Burgers d'auteur, ingrédients maison et viande de bœuf premium. Santiago Kalea, 27 · Irún, à 20 min d'Hendaye.">
-  <meta property="og:image" content="https://holyburgerirun.com/img/foto-premio.JPG">
-  <meta property="og:image:width" content="645">
-  <meta property="og:image:height" content="868">
+  <meta property="og:image" content="https://holyburgerirun.com/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -352,12 +352,15 @@
         </div>
       </div>
       <div class="hero-image-wrap">
-        <img class="hero-img"
-             src="../img/foto-premio.JPG"
-             onerror="this.onerror=null; this.src='../img/holy-shit.JPG'"
-             alt="Burger Holy Sh*t, primé à Best Burger Spain 2026"
-             width="600" height="480"
-             loading="eager" decoding="async" fetchpriority="high">
+        <picture>
+          <source srcset="../img/foto-premio.webp" type="image/webp">
+          <img class="hero-img"
+               src="../img/foto-premio.JPG"
+               onerror="this.onerror=null; this.src='../img/holy-shit.JPG'"
+               alt="Burger Holy Sh*t, primé à Best Burger Spain 2026"
+               width="600" height="480"
+               loading="eager" decoding="async" fetchpriority="high">
+        </picture>
         <div class="award-seal" aria-hidden="true">
           <div class="award-seal-text">
             <span class="line-top">Best Burger</span>
@@ -413,7 +416,9 @@
       </div>
 
       <div class="story-img-wrap">
-        <img src="../img/holy-shit.JPG"
+        <picture>
+          <source srcset="../img/holy-shit.webp" type="image/webp">
+          <img src="../img/holy-shit.JPG"
              onerror="this.onerror=null; this.src='../img/foto-premio.JPG'"
              alt="Burger artisanal Holy à Irún"
              loading="lazy" decoding="async"
@@ -421,8 +426,12 @@
              aria-label="Agrandir la photo du burger artisanal Holy"
              onclick="openPhotoLightbox(this.src, this.alt)"
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        </picture>
         <figure class="founders-polaroid" tabindex="0" role="button" aria-label="Agrandir la photo des fondateurs de Holy en cuisine" onclick="openPhotoLightbox('../img/holy-primer-dia.JPG', 'Les deux fondateurs de Holy en cuisine')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="cursor: zoom-in;">
-          <img src="../img/holy-primer-dia.JPG" alt="Les deux fondateurs de Holy en cuisine" loading="lazy" decoding="async" width="150" height="110">
+          <picture>
+            <source srcset="../img/holy-primer-dia.webp" type="image/webp">
+            <img src="../img/holy-primer-dia.JPG" alt="Les deux fondateurs de Holy en cuisine" loading="lazy" decoding="async" width="150" height="110">
+          </picture>
           <figcaption>Les débuts</figcaption>
         </figure>
       </div>
@@ -877,21 +886,30 @@
 
         <div class="ambiente-photos">
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Agrandir la photo : pas une miette perdue" onclick="openPhotoLightbox('../img/alvarito-comiendo.JPG', 'Client dégustant un burger Holy de près')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/alvarito-ambiente-wide.jpg" alt="Client dégustant un burger Holy de près" loading="lazy" decoding="async" width="900" height="460" style="object-position: center center;">
+            <picture>
+              <source srcset="../img/alvarito-ambiente-wide.webp" type="image/webp">
+              <img src="../img/alvarito-ambiente-wide.jpg" alt="Client dégustant un burger Holy de près" loading="lazy" decoding="async" width="900" height="460" style="object-position: center center;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
             <figcaption class="ambiente-photo-caption">Pas une miette perdue</figcaption>
           </figure>
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Agrandir la photo : droit à la bouche, sans chichis" onclick="openPhotoLightbox('../img/ambiente-1.JPG', 'Cliente dégustant un burger Holy dans la rue')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/ambiente-1.JPG" alt="Cliente dégustant un burger Holy dans la rue" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 25%;">
+            <picture>
+              <source srcset="../img/ambiente-1.webp" type="image/webp">
+              <img src="../img/ambiente-1.JPG" alt="Cliente dégustant un burger Holy dans la rue" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 25%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
             <figcaption class="ambiente-photo-caption">Droit à la bouche, sans chichis</figcaption>
           </figure>
           <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Agrandir la photo : Holy se vit comme ça à Santiago Kalea" onclick="openPhotoLightbox('../img/ambiente-2.JPG', 'Clients mangeant des burgers Holy sur une voiture à Irún')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/ambiente-2.JPG" alt="Clients mangeant des burgers Holy sur une voiture à Irún" loading="lazy" decoding="async" width="640" height="240" style="object-position: center top;">
+            <picture>
+              <source srcset="../img/ambiente-2.webp" type="image/webp">
+              <img src="../img/ambiente-2.JPG" alt="Clients mangeant des burgers Holy sur une voiture à Irún" loading="lazy" decoding="async" width="640" height="240" style="object-position: center top;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -914,7 +932,10 @@
         <div class="process-step">
           <span class="process-step-num">01</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Agrandir la photo : une viande juteuse, couche par couche" onclick="openPhotoLightbox('../img/foto-hamburguesa-apiladas.jpg', 'Coupe de deux burgers Holy empilés, montrant la cuisson de la viande')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/burgers-apiladas-wide.jpg" alt="Coupe de deux burgers Holy empilés, montrant la cuisson de la viande" loading="lazy" decoding="async" width="900" height="520" style="object-position: center center;">
+            <picture>
+              <source srcset="../img/burgers-apiladas-wide.webp" type="image/webp">
+              <img src="../img/burgers-apiladas-wide.jpg" alt="Coupe de deux burgers Holy empilés, montrant la cuisson de la viande" loading="lazy" decoding="async" width="900" height="520" style="object-position: center center;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -924,7 +945,10 @@
         <div class="process-step">
           <span class="process-step-num">02</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Agrandir la photo : Xabi qui met du cœur à l'ouvrage" onclick="openPhotoLightbox('../img/xabi-disfrutando.jpg', 'Xabi en train de cuisiner avec plaisir dans la cuisine de Holy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/xabi-disfrutando.jpg" alt="Xabi en train de cuisiner avec plaisir dans la cuisine de Holy" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 22%;">
+            <picture>
+              <source srcset="../img/xabi-disfrutando.webp" type="image/webp">
+              <img src="../img/xabi-disfrutando.jpg" alt="Xabi en train de cuisiner avec plaisir dans la cuisine de Holy" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 22%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -934,7 +958,10 @@
         <div class="process-step">
           <span class="process-step-num">03</span>
           <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Agrandir la photo : nachos Holy tout juste dressés" onclick="openPhotoLightbox('../img/foto-nachos.JPG', 'Nachos Holy tout juste dressés avec fromage fondu')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-            <img src="../img/foto-nachos.JPG" alt="Nachos Holy tout juste dressés avec fromage fondu" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 65%;">
+            <picture>
+              <source srcset="../img/foto-nachos.webp" type="image/webp">
+              <img src="../img/foto-nachos.JPG" alt="Nachos Holy tout juste dressés avec fromage fondu" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 65%;">
+            </picture>
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
@@ -967,7 +994,10 @@
       </div>
 
       <div class="premio-spotlight-media reveal">
-        <img src="../img/foto-premio.JPG" alt="Prix Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Agrandir la photo du prix Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <picture>
+          <source srcset="../img/foto-premio.webp" type="image/webp">
+          <img src="../img/foto-premio.JPG" alt="Prix Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Agrandir la photo du prix Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        </picture>
         <div>
           <blockquote class="premio-jury-quote">
             « Dégusté à l'aveugle par un jury gastronomique d'élite présidé par José Carlos Capel (Madrid Fusión), aux côtés de Javier Estévez, Ricardo Sanz et Mariana Sánchez. »
