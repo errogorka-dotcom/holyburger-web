@@ -910,45 +910,53 @@
         <p style="color: var(--text-muted); margin-top: 0.5rem;">Producto fresco, técnica y mimo en cada paso, del fuego a tu bolsa.</p>
       </div>
 
-      <div class="ambiente-grid ambiente-grid-reverse reveal">
-        <div class="video-section" style="max-height: 480px;">
-          <video class="video-local lazy-video" id="procesoVideo" controls muted loop playsinline preload="none" poster="img/video-corto-poster.jpg" aria-label="Vídeo del proceso de elaboración de una hamburguesa Holy">
-            <source data-src="video/video-corto.mp4" type="video/mp4">
-            Tu navegador no soporta vídeo HTML5.
-          </video>
-        </div>
-
-        <div class="ambiente-photos">
-          <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: carne jugosa, capa a capa" onclick="openPhotoLightbox('img/foto-hamburguesa-apiladas.jpg', 'Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <span class="process-step-num">01</span>
+          <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: carne jugosa, capa a capa" onclick="openPhotoLightbox('img/foto-hamburguesa-apiladas.jpg', 'Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <img src="img/burgers-apiladas-wide.jpg" alt="Corte de dos hamburguesas Holy apiladas, mostrando el punto de la carne" loading="lazy" decoding="async" width="900" height="520" style="object-position: center center;">
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
-            <figcaption class="ambiente-photo-caption">Carne jugosa, capa a capa</figcaption>
           </figure>
-          <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: Xabi poniéndole ganas en cocina" onclick="openPhotoLightbox('img/xabi-disfrutando.jpg', 'Xabi cocinando y disfrutando en la cocina de Holy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+          <p class="process-step-label">Carne jugosa, capa a capa</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">02</span>
+          <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: Xabi poniéndole ganas en cocina" onclick="openPhotoLightbox('img/xabi-disfrutando.jpg', 'Xabi cocinando y disfrutando en la cocina de Holy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <img src="img/xabi-disfrutando.jpg" alt="Xabi cocinando y disfrutando en la cocina de Holy" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 22%;">
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
-            <figcaption class="ambiente-photo-caption">Xabi poniéndole ganas</figcaption>
           </figure>
-          <figure class="ambiente-photo" tabindex="0" role="button" aria-label="Ampliar foto: nachos Holy recién montados" onclick="openPhotoLightbox('img/foto-nachos.JPG', 'Nachos Holy recién montados con queso fundido')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+          <p class="process-step-label">Xabi poniéndole ganas</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-num">03</span>
+          <figure class="ambiente-photo process-step-photo" tabindex="0" role="button" aria-label="Ampliar foto: nachos Holy recién montados" onclick="openPhotoLightbox('img/foto-nachos.JPG', 'Nachos Holy recién montados con queso fundido')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <img src="img/foto-nachos.JPG" alt="Nachos Holy recién montados con queso fundido" loading="lazy" decoding="async" width="640" height="240" style="object-position: center 65%;">
             <span class="ambiente-photo-zoom" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.8-3.8M9 11h4M11 9v4"/></svg>
             </span>
-            <figcaption class="ambiente-photo-caption">Nachos recién montados</figcaption>
           </figure>
+          <p class="process-step-label">Nachos recién montados</p>
         </div>
+      </div>
+
+      <div class="process-video reveal">
+        <video class="video-local lazy-video" id="procesoVideo" controls muted loop playsinline preload="none" poster="img/video-corto-poster.jpg" aria-label="Vídeo del proceso de elaboración de una hamburguesa Holy">
+          <source data-src="video/video-corto.mp4" type="video/mp4">
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+        <p class="process-video-caption">Míralo en directo, del fuego a la bolsa</p>
       </div>
     </div>
   </section>
 
   <!-- EL PREMIO & JURADO DE ÉLITE -->
   <section class="section-padding" id="premios" style="background: var(--bg-surface);">
-    <div class="container story-grid reveal">
-      <div class="story-content">
+    <div class="container">
+      <div class="premio-spotlight reveal">
         <span class="badge-award">Best Burger Spain</span>
         <h2 style="font-size: clamp(2.3rem, 4.5vw, 3.8rem); margin: 0.8rem 0 1.2rem;">
           EL VOTO DEL PÚBLICO Y LA CATA DEL JURADO
@@ -956,30 +964,27 @@
         <p>
           En el prestigioso campeonato nacional <strong>Best Burger Spain</strong>, entre más de 430 hamburgueserías de toda España, Holy se coronó con el <strong>Primer Puesto del País Vasco</strong> y el pase directo al <strong>Top 15 Nacional</strong> con la <em>Holy Sh*t</em>.
         </p>
-        
-        <div class="story-highlight-box">
-          <p>
+      </div>
+
+      <div class="premio-spotlight-media reveal">
+        <img src="img/foto-premio.JPG" alt="Premio Holy Sh*t Burger" class="premio-photo-framed" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <div>
+          <blockquote class="premio-jury-quote">
             "Catado a ciegas por un jurado gastronómico de élite presidido por José Carlos Capel (Madrid Fusión), junto a Javier Estévez, Ricardo Sanz y Mariana Sánchez."
-          </p>
-        </div>
-
-        <ul class="features-list">
-          <li class="feature-item">Máquina Arcade en Local</li>
-          <li class="feature-item">Terraza Exterior (4-6 mesas)</li>
-          <li class="feature-item">Pago con Tarjeta / Contactless</li>
-          <li class="feature-item">Espacio Accesible</li>
-        </ul>
-      </div>
-
-      <div style="text-align: center;">
-        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2.5rem;">
-          <img src="img/foto-premio.JPG" alt="Premio Holy" style="max-height: 280px; width: auto; border-radius: 12px; margin: 0 auto 1.5rem; object-fit: cover; cursor: zoom-in;" tabindex="0" role="button" aria-label="Ampliar foto del premio Holy Sh*t Burger" onclick="openPhotoLightbox(this.src, this.alt)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-          <h3 class="font-display" style="font-size: 2.2rem; color: var(--brand-yellow);">HOLY SH*T BURGER</h3>
-          <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">
-            Mejor Hamburguesa de Euskadi • Top 15 España
+          </blockquote>
+          <h3 class="font-display" style="font-size: 1.8rem; color: var(--brand-yellow); margin-top: 1.5rem;">HOLY SH*T BURGER</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.4rem;">
+            Mejor Hamburguesa de Euskadi · Top 15 España
           </p>
         </div>
       </div>
+
+      <ul class="premio-features-row reveal">
+        <li>Máquina Arcade en Local</li>
+        <li>Terraza Exterior (4-6 mesas)</li>
+        <li>Pago con Tarjeta / Contactless</li>
+        <li>Espacio Accesible</li>
+      </ul>
     </div>
   </section>
 
@@ -1142,7 +1147,7 @@
             </div>
 
             <a href="https://search.google.com/local/writereview?placeid=ChIJ6xGPJQAJUQ0RCYyl2YRZp2U" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 1.05rem;" data-track="click_dejar_resena">
-              DEJAR UNA RESEÑA EN GOOGLE
+              RESEÑA EN GOOGLE
             </a>
           </div>
         </div>

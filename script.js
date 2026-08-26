@@ -1,7 +1,7 @@
 
     // 0. REVEAL AL SCROLL
     (function () {
-      const groupSelectors = ['.burger-item-card', 'details.faq-item', '.feature-item', '.retro-yellow-box', '.extras-panel'];
+      const groupSelectors = ['.burger-item-card', 'details.faq-item', '.premio-features-row li', '.retro-yellow-box', '.extras-panel', '.process-step'];
       groupSelectors.forEach((sel) => {
         document.querySelectorAll(sel).forEach((el, i) => {
           el.classList.add('reveal');
