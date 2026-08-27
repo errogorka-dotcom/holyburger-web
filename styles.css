@@ -17,6 +17,7 @@
 
     html {
       color-scheme: dark;
+      overflow-x: hidden;
     }
 
     *, *::before, *::after {
@@ -763,7 +764,8 @@
     .category-title-row {
       display: flex;
       align-items: baseline;
-      gap: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.8rem;
       border-bottom: 2px solid #fff;
       padding-bottom: 0.6rem;
       margin-bottom: 2rem;
@@ -776,6 +778,10 @@
       font-family: var(--font-vintage);
       font-size: 1.9rem;
       color: var(--text-muted);
+    }
+    @media (max-width: 600px) {
+      .category-title-row h3 { font-size: 2rem; }
+      .category-title-row span { font-size: 1.3rem; }
     }
 
     .burger-items-list {
