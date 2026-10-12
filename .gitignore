@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Material que no forma parte de la web
+_material-no-subir/

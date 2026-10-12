@@ -6,12 +6,12 @@
   <title>Página no encontrada | Holy Irún</title>
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://holyburgerirun.com/">
-  <link rel="icon" type="image/jpeg" href="img/LOGO.jpg">
-  <link rel="apple-touch-icon" href="img/LOGO.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
   <style>
+    /* Fuentes alojadas en la propia web (sin Google Fonts) */
+    @font-face { font-family:'Bebas Neue'; src:url('/fonts/bebas-neue-latin.woff2') format('woff2'); font-display:swap; }
+    @font-face { font-family:'Space Grotesk'; src:url('/fonts/space-grotesk-latin.woff2') format('woff2'); font-weight:300 700; font-display:swap; }
     :root {
       --bg-dark: #09090b;
       --brand-yellow: #ffc700;
@@ -23,7 +23,7 @@
     body {
       background: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -85,8 +85,8 @@
   <h1>Esta página se la han comido</h1>
   <p>No encontramos lo que buscabas, pero la carta sigue en su sitio y la Holy Sh*t también.</p>
   <div class="actions">
-    <a href="index.html" class="btn primary">VOLVER AL INICIO</a>
-    <a href="index.html#menu" class="btn outline">VER LA CARTA</a>
+    <a href="/" class="btn primary">VOLVER AL INICIO</a>
+    <a href="/#menu" class="btn outline">VER LA CARTA</a>
   </div>
   <div class="damero"></div>
 </body>
